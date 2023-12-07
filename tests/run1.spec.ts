@@ -107,7 +107,7 @@ test('go to login page and login', async ({ page }) => {
       dowloaddropdown.map(selector => page.waitForSelector(selector))
     );
   });
-
+  
   test('radio button-yes', async ({ page }) => {
     await page.goto('https://demoqa.com/login');   
     await page.fill('id=userName','prin');
@@ -116,9 +116,9 @@ test('go to login page and login', async ({ page }) => {
     await page.waitForSelector('id=submit');
     await page.click('div.header-wrapper');
     await page.click('//*[@id="item-2"]') //ระบุlocaterแบบ xpath
-    await page.click('//*[@id="yesRadio"]')
-    const status = await page.$eval('//*[@id="app"]/div/div/div[2]/div[2]/div[2]/p/span', (element) => element.textContent);
-    await expect(status).toEqual('yes');
+    await page.click('//*[@id="app"]/div/div/div[2]/div[2]/div[2]/div[2]/label')
+    const username = await page.$eval(' #app > div > div > div.row > div.col-12.mt-4.col-md-6 > div:nth-child(2) > p > span', (element) => element.textContent);
+    await expect(username).toEqual('Yes');
   });
 
   test('radio button-Impressive', async ({ page }) => {
@@ -129,7 +129,9 @@ test('go to login page and login', async ({ page }) => {
     await page.waitForSelector('id=submit');
     await page.click('div.header-wrapper');
     await page.click('//*[@id="item-2"]') //ระบุlocaterแบบ xpath
-    await page.click('//*[@id="impressiveRadio"]')
-    const status = await page.$eval('//*[@id="app"]/div/div/div[2]/div[2]/div[2]/p/span', (element) => element.textContent);
-    await expect(status).toEqual('Impressive');
+    await page.waitForSelector('#impressiveRadio');
+    await page.click('//*[@id="app"]/div/div/div[2]/div[2]/div[2]/div[3]/label');
+    const username = await page.$eval(' #app > div > div > div.row > div.col-12.mt-4.col-md-6 > div:nth-child(2) > p > span', (element) => element.textContent);
+    await expect(username).toEqual('Impressive');
+
   });
