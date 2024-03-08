@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('http://cctv.naimueang.com:30800/');
   await page.goto('http://cctv.naimueang.com:30800/login');
   await page.getByPlaceholder('E-mail').click();
   await page.getByPlaceholder('E-mail').dblclick();
   await page.getByPlaceholder('E-mail').fill('superadmin@gmail.com');
   await page.getByPlaceholder('Password').click();
   await page.getByPlaceholder('Password').fill('superadmin');
+  await page.getByRole('button', { name: 'Login' }).click(); 
   await page.getByLabel('Map').click({
     position: {
       x: 409,

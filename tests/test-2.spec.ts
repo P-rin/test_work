@@ -21,3 +21,21 @@ test('test', async ({ page }) => {
     }
   });
 });
+
+test('test', async ({ page }) => {
+  await page.goto('https://app.larry-cctv.com/');
+  await page.goto('https://app.larry-cctv.com/login');
+  await page.getByPlaceholder('E-mail').click();
+  await page.getByPlaceholder('E-mail').fill('superadmin@gmail.com');
+  await page.getByPlaceholder('Password').click();
+  await page.getByPlaceholder('Password').fill('superadmin');
+  await page.locator('i').click();
+  await page.locator('i').click();
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('link', { name: '' }).click();
+  await page.getByText('Camera', { exact: true }).click();
+  await page.getByRole('button', { name: ' Camera list' }).click();
+  await page.getByRole('button', { name: ' Camera list' }).click();
+  await page.getByRole('button', { name: ' Camera list' }).click();
+});
+
