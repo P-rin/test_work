@@ -11,4 +11,4 @@ test('test', async ({ page }) => {
   await page.getByPlaceholder('Search by Device...').fill('sh-pr-27');
   await page.getByText('SH-PR-27 (ปากซอยสุนทร 2)').click();
   await page.getByLabel('Map').click({position: {x: 599,y: 359} });
-});
+});ืยป

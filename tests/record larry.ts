@@ -25,3 +25,4 @@ test('api', async ({ page }) => {
   
   await checkHttpStatus(page, "https://www.example.com", [200, 302]);
 });
+

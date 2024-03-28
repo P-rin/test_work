@@ -17,15 +17,13 @@ test('check camera', async () => {
         await page.getByRole('button', { name: 'Login' }).click();
     //await page.fill('input#search','sh-pr-27');
     //อ่านไฟล์
-    //     const data = await page.evaluate(async()=>{
-    //     const csvData = await fetch('EX_camera.csv').then(res => res.text());
-    //     const lines = csvData.split('\n');
-    //     const headers = lines[0].split(',');
-    //     const rows = lines.slice(1).map(line => line.split(','));
-    //     return { headers, rows };
-    // });
-    
-
+         const data = await page.evaluate(async()=>{
+         const csvData = await fetch('./ex_camera.csv').then(res => res.text());
+         const lines = csvData.split('\n');
+         const headers = lines[0].split(',');
+         const rows = lines.slice(1).map(line => line.split(','));
+         return { headers, rows };
+     });
     fs.createReadStream(filePath).pipe(parser).on('data', (data) => {console.log(data);}).on('end', () => {
     console.log('Finished parsing CSV file');
   });
