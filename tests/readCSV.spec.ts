@@ -9,8 +9,8 @@ const camera = parse(fs.readFileSync(path.join(__dirname,'ex_camera.csv')),{
     skip_empty_lines: true
 });
 
-for(count record of camera ){ 
-    test('Test Case: ${record.no'),async({})=>{
+for(const record of camera ){ 
+    test('Test Case: ${record.no',async({})=>{
         console.log(record.no);
     })
 }
