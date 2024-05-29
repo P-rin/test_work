@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { Page } from 'playwright';
+import * as playwright from 'playwright';
 
 async function readCsvFile(page: Page, filePath: string): Promise<string[]> {
   const data = await page.evaluate(async (filePath) => {
